@@ -1,2 +1,2 @@
 # spring-framework-drill
-This repo contains all the spring framework exercise 
+This repo contains all the spring framework and spring projects exercise done to improve or maintain proficiency in it.
