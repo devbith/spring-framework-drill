@@ -74,30 +74,36 @@ Bean definition contains the information called configuration metadata, which is
 - Pass the bean instance to the postProcessAfterInitialization() method of each bean post processor.
 
 #### Bean Ready For Use:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 source: https://stackoverflow.com/questions/29743320/how-exactly-does-the-spring-beanpostprocessor-work
+
+
+
+## Can you describe life cycle of Spring Beans in an ApplicationContext (BeanFactory) ?
+
+#### BeanFactory (ApplicationContext) is created: 
+
+1. BeanDefinition are created based on spring beans configuration.
+2. BeanFactoryPostProcessor are invoked.
+
+#### Bean is created:
+
+1. Instance of bean is created.
+2. Properties and dependencies are set.
+3. BeanPostProcessor::postProcessBeforeInitialization gets called.
+4. @PostConstruct methods gets called.
+5. InitializingBean::afterPropertiesSet methods gets called.
+6. @Bean(initMethod) gets called.
+7. BeanPostProcessor:postProcessAfterInitialization gets called.
+
+
+#### Bean is ready to use:
+
+### Bean is Destroyed:
+
+1. @PreDestroy methods gets called.
+2. DisposableBean::destroy gets called.
+3. @Bean(destroyMethod) method gets called.
+
+
+
+
