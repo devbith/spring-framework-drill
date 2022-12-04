@@ -57,21 +57,21 @@ Bean definition contains the information called configuration metadata, which is
                     ------------------------
                        
 #### Load Bean Definitions Phase:
-• The @Configuration classes are processed and @Components are scanned and XML files are parsed.
-• Beandefinitions are added to BeanFactory.
-• Special BeanFactoryPostProcessor beans invoked, it can modify the definition of any bean (for example for
+- The @Configuration classes are processed and @Components are scanned and XML files are parsed.
+- Beandefinitions are added to BeanFactory.
+- Special BeanFactoryPostProcessor beans invoked, it can modify the definition of any bean (for example for
   the property-placeholder values replacements).
 
 #### Bean Creation Phase:
-• Each bean is egerly instantiated by default (created in right order with its dependencies injected).
-• After dependencies injection each beans goes through a post-processing phase in which further configuration
+- Each bean is egerly instantiated by default (created in right order with its dependencies injected).
+- After dependencies injection each beans goes through a post-processing phase in which further configuration
   and initilization may occur.
-• After post processing the bean is fully initialized and ready for use (tracked by its id until the context is destroyed).
+- After post processing the bean is fully initialized and ready for use (tracked by its id until the context is destroyed).
 
 ### Bean Post Processor:
-• Pass the bean instance to the postProcessBeforeInitialization() method of each bean post processor.
-• Call the initialization callback methods.
-• Pass the bean instance to the postProcessAfterInitialization() method of each bean post processor.
+- Pass the bean instance to the postProcessBeforeInitialization() method of each bean post processor.
+- Call the initialization callback methods.
+- Pass the bean instance to the postProcessAfterInitialization() method of each bean post processor.
 
 #### Bean Ready For Use:
 
