@@ -20,9 +20,14 @@ These can also be called dependencies.
 
 
 
+```
 Spring BeanFactoryPostProcessor works on the bean definitions or configuration meta data 
 of the bean before beans are actually created. With BeanFactoryPostProcessor we can modify exiting bean 
 definitions or create our new bean definitions.
 
-The BeanFactory provides an advanced configuration mechanism capable of managing beans (objects) of any nature, 
+ The BeanFactory provides an advanced configuration mechanism capable of managing beans (objects) of any nature, 
 using potentially any kind of storage facility.
+```
+
+
+

@@ -15,7 +15,5 @@ public class Application {
     logger.info("{}", ctx.getBean("myBean"));
     ctx.close();
 
-    BeanFactory
-
   }
 }
