@@ -10,9 +10,10 @@ fi
 artifactId=$1
 
 mkdir $artifactId
-touch $artifactId/README.md
+touch $artifactId/README.adoc
 touch $artifactId/pom.xml
 mkdir -p $artifactId/src/main/java/com/sample
+mkdir -p $artifactId/src/main/resources
 
 
 cat > $artifactId/src/main/java/com/sample/Application.java <<END_OF_SCRIPT
