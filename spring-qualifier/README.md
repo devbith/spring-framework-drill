@@ -9,4 +9,4 @@ By adding additional information on which bean you want to inject, @Qualifier re
 
 - At injection point with bean name as value.
 - At injection and bean definition point.
-- Custom Qualifier annotation definition
+- Custom Qualifier annotation definition.

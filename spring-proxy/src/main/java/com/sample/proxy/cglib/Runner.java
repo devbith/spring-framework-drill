@@ -1,4 +1,4 @@
-package com.sample.cglib;
+package com.sample.proxy.cglib;
 
 import com.sample.dao.DepartmentDao;
 import com.sample.dto.Department;

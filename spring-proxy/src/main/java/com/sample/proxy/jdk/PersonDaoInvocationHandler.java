@@ -1,4 +1,4 @@
-package com.sample.jdk;
+package com.sample.proxy.jdk;
 
 import com.sample.dao.PersonDao;
 import java.lang.reflect.InvocationHandler;

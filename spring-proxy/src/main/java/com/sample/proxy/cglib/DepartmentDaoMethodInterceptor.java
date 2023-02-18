@@ -1,4 +1,4 @@
-package com.sample.cglib;
+package com.sample.proxy.cglib;
 
 import java.lang.reflect.Method;
 import org.springframework.cglib.proxy.MethodInterceptor;

@@ -1,4 +1,4 @@
-package com.sample.manual;
+package com.sample.proxy.manual;
 
 import com.sample.dao.PersonDao;
 import com.sample.dao.PersonDaoImpl;

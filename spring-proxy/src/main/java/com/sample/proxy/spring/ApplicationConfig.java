@@ -1,4 +1,4 @@
-package com.sample.spring;
+package com.sample.proxy.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -11,6 +11,7 @@ public class ApplicationConfig {
   @Bean
   SpringBean springBean() {
     System.out.println("Creating SpringBean in: "+getClass().getSimpleName());
+    System.out.println("This method will be called only once by Enhancer by Spring CGLIB");
     return new SpringBean();
   }
 }
