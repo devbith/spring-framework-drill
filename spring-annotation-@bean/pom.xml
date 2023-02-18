@@ -1,42 +1,10 @@
-#!/bin/bash
-
-set -e
-
-if [ "$1" == "" ]; then
-  echo "Usage: ${0##*/} artifact-name"
-  exit 1
-fi
-
-artifactId=$1
-
-mkdir $artifactId
-touch $artifactId/README.adoc
-touch $artifactId/pom.xml
-mkdir -p $artifactId/src/main/java/com/sample
-mkdir -p $artifactId/src/main/resources
-
-
-cat > $artifactId/src/main/java/com/sample/Runner.java <<END_OF_SCRIPT
-package com.sample;
-
-public class Runner {
-
- public static void main(String[] args) {
-
- }
-
-}
-
-END_OF_SCRIPT
-
-cat > $artifactId/pom.xml <<END_OF_SCRIPT
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.sample</groupId>
-  <artifactId>$artifactId</artifactId>
+  <artifactId>spring-annotation-bean</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
@@ -50,12 +18,17 @@ cat > $artifactId/pom.xml <<END_OF_SCRIPT
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>\${spring.version}</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>\${spring.version}</version>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.15</version>
     </dependency>
   </dependencies>
 
@@ -69,7 +42,7 @@ cat > $artifactId/pom.xml <<END_OF_SCRIPT
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>com.sample.Application</mainClass>
+              <mainClass>com.sample.Runner</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -79,7 +52,7 @@ cat > $artifactId/pom.xml <<END_OF_SCRIPT
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.sample.Application</mainClass>
+              <mainClass>com.sample.Runner</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
@@ -91,8 +64,3 @@ cat > $artifactId/pom.xml <<END_OF_SCRIPT
   </build>
 
 </project>
-END_OF_SCRIPT
-
-echo -e "\033[0;32m Project Created Successfully ✓ "
-
-
