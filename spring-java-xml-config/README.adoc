@@ -13,11 +13,10 @@ Config (special support needed for XML Config)
 easier to switch technology
 - Ability to integrate Spring with external libraries
 - More centralized location of bean list
-
+- Configuration class be final
+- Configuration class methods be final
 
 **Limitations of Java Config:**
 
-- Configuration class cannot be final
-- Configuration class methods cannot be final
 - All Beans have to be listed, for big applications, it might be a challenge compared to
 Component Scanning

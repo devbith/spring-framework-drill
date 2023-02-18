@@ -10,7 +10,7 @@ public class ApplicationConfig {
 
   @Bean
   SpringBean springBean() {
-    System.out.println("Creating SpringBean in: "+getClass().getSimpleName());
+    System.out.println("Creating singleton SpringBean in: "+getClass().getSimpleName());
     System.out.println("This method will be called only once by Enhancer by Spring CGLIB");
     return new SpringBean();
   }
