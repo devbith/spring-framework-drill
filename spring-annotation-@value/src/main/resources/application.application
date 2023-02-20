@@ -1,0 +1,6 @@
+department.id = 100
+department.name = Account
+departments.names = Account, HR, Product, Tech
+departments.unique.ids = {1,2,3,4,5,6}
+departments.nonunique.names = Account, HR, Tech, Product, Tech, Account
+department.id.name.map = { 1:'Account', 2:'HR' }
