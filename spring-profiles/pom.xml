@@ -7,25 +7,53 @@
   <artifactId>spring-profiles</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <properties>
-    <maven.compiler.source>8</maven.compiler.source>
-    <maven.compiler.target>8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>5.3.19</spring.version>
-  </properties>
+ <!--  Enable this configuration when testing code inside package com.sample.activation.spring_boot  -->
+ <!-- Start: SpringBoot Profile Activation Configuration -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.0.2</version>
+  </parent>
 
   <dependencies>
     <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
     </dependency>
   </dependencies>
+<!-- End: SpringBoot Profile Activation Configuration  -->
+
+  <!--
+    <properties>
+      <maven.compiler.source>8</maven.compiler.source>
+      <maven.compiler.target>8</maven.compiler.target>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <spring.version>5.3.19</spring.version>
+    </properties>
+
+      <dependencies>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+        </dependency>
+    </dependencies>
+    -->
 
   <build>
     <plugins>
