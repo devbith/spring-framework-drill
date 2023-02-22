@@ -10,7 +10,6 @@ public class Runner {
   context.registerShutdownHook();
 
   SpringBean1 springBean1 = context.getBean(SpringBean1.class);
-
   System.out.println(springBean1);
 
  }
