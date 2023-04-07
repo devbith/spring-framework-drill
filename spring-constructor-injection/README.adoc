@@ -1,0 +1,38 @@
+== What is the behavior of the annotation @Autowired with regards to field injection, constructor injection and method injection?
+
+- If there is one constructor then *@Autowired* annotation is not required. Spring will inject the dependencies in the constructor.
+- If there is multiple constructor then *@Autowired* annotation is required to tell Spring which constructor to use to inject the
+  dependencies.
+
+By default, all arguments in constructor are required, however you can use Optional, @Nullable or @Autowired(required = false)
+to indicate that parameter is not required.
+
+```
+  @Autowired
+  public SpringBeanD(SpringBeanA springBeanA, SpringBeanB springBeanB,
+    @Nullable SampleClassC sampleClassC) {
+    this.springBeanA = springBeanA;
+    this.springBeanB = springBeanB;
+    this.sampleClassC = sampleClassC;
+  }
+```
+
+```
+ @Autowired
+  public SpringBeanD(SpringBeanA springBeanA, SpringBeanB springBeanB,
+    @Autowired(required = false) SampleClassC sampleClassC) {
+    this.springBeanA = springBeanA;
+    this.springBeanB = springBeanB;
+    this.sampleClassC = sampleClassC;
+  }
+```
+
+```
+  @Autowired
+  public SpringBeanD(SpringBeanA springBeanA, SpringBeanB springBeanB,
+    Optional<SampleClassC> sampleClassC) {
+    this.springBeanA = springBeanA;
+    this.springBeanB = springBeanB;
+    sampleClassC.ifPresent(sampleClassC1 -> this.sampleClassC = sampleClassC1);
+  }
+```
