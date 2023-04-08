@@ -1,10 +1,11 @@
 package com.sample.service;
 
-import com.sample.bls.RecordsProcessor;
-import com.sample.validator.RecordsValidator;
-import com.sample.validator.RecordsValidatorTypes;
-import com.sample.validator.RecordsValidatorTypes.RecordValidatorMode;
-import java.util.Collections;
+import com.sample.processor.RecordProcessor;
+import com.sample.reader.RecordReader;
+import com.sample.validator.RecordValidator;
+import com.sample.validator.RecordValidatorType;
+import com.sample.validator.RecordValidatorType.RecordValidatorMode;
+import com.sample.writer.RecordWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,16 +14,21 @@ import org.springframework.stereotype.Service;
 public class RecordService {
 
   @Autowired
-  @Qualifier("db-records-processor")
-  private RecordsProcessor recordsProcessor;
+  @Qualifier("dbRecordProcessor")
+  private RecordProcessor recordProcessor;
 
   @Autowired
-  @RecordsValidatorTypes(RecordValidatorMode.FILE)
-  private RecordsValidator recordsValidator;
+  @Qualifier("db-record-reader")
+  private RecordReader recordReader;
 
-  public void processRecord() {
-    this.recordsProcessor.processRecords(Collections.emptyList());
-    this.recordsValidator.validate(Collections.emptyList());
-  }
+  @Autowired
+  @Qualifier("db-record-writer")
+  private RecordWriter recordWriter;
+
+  @Autowired
+  @RecordValidatorType(RecordValidatorMode.FILE)
+  private RecordValidator recordValidator;
+
+
 
 }

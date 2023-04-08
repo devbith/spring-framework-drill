@@ -7,15 +7,11 @@ import java.lang.annotation.Target;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 @Qualifier
-@Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE})
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE_PARAMETER, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface RecordsValidatorTypes {
+public @interface RecordValidatorType {
 
   RecordValidatorMode value();
 
-  enum RecordValidatorMode {
-    DB,
-    FILE
-  }
-
+  enum RecordValidatorMode {FILE, DB}
 }
