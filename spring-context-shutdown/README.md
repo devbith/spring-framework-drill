@@ -2,7 +2,7 @@
 
 ##### Standalone Non-web application
 
-1. Register Shutdown hook by calling ConfigurableApplicationContext::registerShutdownHook (Recommended way)
+1. Register a shutdown hook by calling ConfigurableApplicationContext::registerShutdownHook (Recommended way)
 2. Call ConfigurableApplicationContext::close
 
 #### Web application

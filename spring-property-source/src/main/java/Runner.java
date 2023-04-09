@@ -1,8 +1,8 @@
-package com.sample;
-
+import com.sample.AppConfiguration;
+import com.sample.SpringBeanExample;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Main {
+public class Runner {
 
   public static void main(String[] args) {
 
