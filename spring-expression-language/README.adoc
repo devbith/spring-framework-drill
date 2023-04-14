@@ -1,3 +1,5 @@
+The Spring Expression Language (“SpEL” for short) is a powerful expression language that supports querying and manipulating an object graph at runtime.
+
 == What can you reference using SpEL?
 
 .You can reference following using SpEL:
