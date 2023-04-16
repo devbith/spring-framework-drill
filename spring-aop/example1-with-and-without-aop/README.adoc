@@ -1,0 +1,38 @@
+=== Aspect Oriented Programming (AOP)
+
+
+Aspect oriented programming is a programming paradigm that complements OOP by providing way to separate groups of
+cross cutting concerns from business logic code. AOP provides the ability to add additional behavior to the code without
+having to modify the business code itself.
+
+*This is achieved by specifying:*
+- Location of the code which behavior should be altered - `Point cut is matched with Joint point`
+- Code which should be executed that implements cross cutting concern - `Advice`
+
+[NOTE]
+====
+We should only use AOP when OOP with design pattern and solid concept cannot give a proper solution to
+a problem. It is very important not to overuse AOP.
+====
+
+
+==== Technical words and concepts are important to understand when working with AOP:
+
+- *Joint point*:
+A joint point is the specific flow in the program where aspects can "hook in" and modify the behavior of the code.
+
+- *Point cut*:
+A pointcut specifies which join points are to be intercepted by an aspect. It defines a set of rules or patterns that match one or more
+join points based on their signature, location, or execution context.
+
+- *Advice*:
+The code that executes at a join point intercepted by an aspect. There are several types of advice, including before, after, around,
+and after throwing.
+
+- *Weaving*:
+The process of combining aspects with the base code to create the final executable. Weaving can be done at compile-time,
+load-time, or runtime.
+
+- *Proxy*:
+A design pattern which intercepts the method invocations and delegates them to an aspects.
+
