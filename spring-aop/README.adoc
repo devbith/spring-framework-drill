@@ -1,6 +1,5 @@
 === Aspect Oriented Programming (AOP)
 
-
 Aspect oriented programming is a programming paradigm that complements OOP by providing way to separate groups of
 cross cutting concerns from business logic code. AOP provides the ability to add additional behavior to the code without 
 having to modify the business code itself.
@@ -42,11 +41,8 @@ having to modify the business code itself.
 
 
 
-[NOTE]
-====
-We should only use AOP when OOP with design pattern and solid concept cannot give a proper solution to 
-a problem. It is very important not to overuse AOP.
-====
+WARNING: #We should only use AOP when OOP with design pattern and solid concept cannot give a proper solution to 
+a problem. It is very important not to overuse AOP.#
 
 
 ==== Technical words and concepts are important to understand when working with AOP:
@@ -61,35 +57,86 @@ a problem. It is very important not to overuse AOP.
   - *Advice*:
     The code that executes at a join point intercepted by an aspect. There are several types of advice, including before, after, around,
     and after throwing.
-  
+
+  - *Aspect*:
+    Aspect brings together Pointcut and Advice. Usually it represents single behavior implemented by advice that will be 
+    added to all join points matched by pointcut.
+
   - *Weaving*:
-    The process of combining aspects with the base code to create the final executable. Weaving can be done at compile-time, 
-    load-time, or runtime.
+    The process of combining aspects with the base code to create the final executable. Weaving can be done at `compile-time`, 
+    `load-time`, or `runtime`.
   
   - *Proxy*:
     A design pattern which intercepts the method invocations and delegates them to an aspects.
 
 
 
-==== Example of Pointcut Expressions:
-
+==== Few Example of Pointcut Expressions:
 ▷ execution - Match Method Execution
 
     execution(* com.sample.service.CurrencyService.getExchangeRate(..))
-
 
 ▷ within - Match Execution of given type or types inside package
    
    within(com.sample.service.*)
 
-
 ▷ @within – Match Execution of type annotated with annotation
 
    @within(com.sample.annotations.Loggable)
 
-
+.Click to see more 
+[%collapsible]
+====
 ▷ @annotation – Match join points where the subject of the join point has the given annotation
 
     @annotation(com.sample.annotations.InTransaction)
+
+▷ bean – Match by spring bean name 
+
+    bean(currency_service)
+
+▷  args – Match by method arguments
+
+    args(String, String, int)
+
+▷ @args – Match by runtime type of the method arguments that have annotations of the given type
+
+    @args(com.sample.annotations.Validated)
+
+▷ this – Match by bean reference being an instance of the given type (for CGLIB-based proxy)
+ 
+   this(com.sample.service.CurrencyService)
+
+▷ target – Match by target object being an instance of the given type
+
+   target(com.spring.professional.exam.tutorial.module02.question02.bls.CurrencyService)
+
+▷ @target – Match by class of the executing object having an annotation of the given type 
+
+  @target(com.sample.annotations.Secured)
+
+====
+
+
+.NOTE: 
+
+* In Spring AOP, Joint point is always a method execution.
+* Spring only uses RunTime weaving.
+* It is possible to force Spring to use only CGLIB proxy by -> `@EnableAspectJAutoProxy(proxyTargetClass = true)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
