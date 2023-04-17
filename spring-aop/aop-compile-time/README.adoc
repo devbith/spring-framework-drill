@@ -1,0 +1,33 @@
+
+=== To compile
+
+ javac -cp "lib/*:src/" -d classes/ src/*.java
+
+Here, the javac command is used to compile the Java source code files. The -cp option specifies the classpath, 
+which includes the jar file in the lib folder and the source files in the src folder. The -d option specifies the destination directory for 
+the compiled class files, which is the classes folder in this case. The *.java pattern is used to compile all Java source files in the src folder.
+
+Note that the * in the -cp option is used as a wildcard to include all jar files in the lib folder. The : separator is used to separate 
+multiple classpath entries on Unix-like systems. On Windows, you should use ; as the separator instead
+
+
+=== To run
+
+ java -cp "lib/*:classes/" classname
+
+
+
+=== Compiling with AOP compile-time weaving 
+
+NOTE: Make sure you have 'ajc command' - brew install aspectj
+
+
+
+To compile
+
+   ajc -cp "lib/*:src/" -inpath "classes/" -outjar "output.jar" -sourceroots "src/" -d "classes/" -aspectpath "aspects/*.aj"
+
+To run
+
+  java -cp output2.jar:lib/aspectjrt.jar Runner
+
