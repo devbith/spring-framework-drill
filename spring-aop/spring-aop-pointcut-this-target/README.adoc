@@ -1,12 +1,13 @@
-Spring uses JDK proxy when a class implements interface and CGLIB proxy when class don't implement interface.
+=== Spring AOP point cut expression `this` and `target`
 
-In this project:
+We have class `BarImpl` which implements an interface `Bar` and class `Foo` that don't implement any interface.
+Both class `BarImpl` & `Foo` are Spring manged beans (component).
 
-- Spring creates a JDK proxy `BarImplJDKProxy` for `BarImpl` component as it implements `Bar`.
+- Spring creates a JDK proxy for `BarImpl` component as it implements `Bar`. Let's imagine, JDK proxy class is `BarImplJDKProxy`.
 
 image::image/jdk-proxy.png[JDK Proxy, 440,280]
 
-- Spring creates a CGLIB proxy `FooCGLIBProxy` for `Foo` component.
+- Spring creates a CGLIB proxy for `Foo` component. Let's imagine, CGLIB proxy class is `FooCGLIBProxy`.
 
 image::image/cglib-proxy.png[CGLIB Proxy,230,280]
 
