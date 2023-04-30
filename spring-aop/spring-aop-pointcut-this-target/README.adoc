@@ -3,11 +3,11 @@
 We have class `BarImpl` which implements an interface `Bar` and class `Foo` that don't implement any interface.
 Both class `BarImpl` & `Foo` are Spring manged beans (component).
 
-- Spring creates a JDK proxy for `BarImpl` component as it implements `Bar`. Let's imagine, JDK proxy class is `BarImplJDKProxy`.
+- Spring creates a JDK proxy for `BarImpl` bean as it implements `Bar`. Let's imagine, JDK proxy class is `BarImplJDKProxy`.
 
 image::image/jdk-proxy.png[JDK Proxy, 440,280]
 
-- Spring creates a CGLIB proxy for `Foo` component. Let's imagine, CGLIB proxy class is `FooCGLIBProxy`.
+- Spring creates a CGLIB proxy for `Foo` bean. Let's imagine, CGLIB proxy class is `FooCGLIBProxy`.
 
 image::image/cglib-proxy.png[CGLIB Proxy,230,280]
 
