@@ -23,6 +23,7 @@
         <module>spring-configure-jdbc-standalone</module>
       <module>spring-configure-jdbc-application-server</module>
       <module>spring-boot-configure-jdbc</module>
+        <module>spring-configure-jdbc-embedded-builder</module>
     </modules>
 
     <dependencyManagement>
